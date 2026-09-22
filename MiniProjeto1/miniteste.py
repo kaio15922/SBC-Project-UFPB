@@ -1,6 +1,8 @@
 #pip install experta
 #pip install --upgrade frozendict
 
+# Mini-Projeto 1 da disciplina de Sistemas baseados em Conhecimento
+
 from experta import KnowledgeEngine, Rule, Fact, MATCH, AS
 from experta import P, AND
 
