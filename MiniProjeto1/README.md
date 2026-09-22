@@ -27,6 +27,7 @@ O sistema possui um total de 16 regras. Abaixo estão descritas em linguagem nat
 6. **Regra Perfil IGL:** SE a função do jogador é "igl-rifler", ENTÃO o seu perfil de jogo é "igl-rifler".
 
 **Nível 2: Definição da Intenção Tática (Prioridade Média)**
+
 7. **Regra Tática Pistol:** SE a economia é "round pistol", ENTÃO a intenção tática é "compra inicial".
 8. **Regra Tática Poupança:** SE a economia é "eco" E o perfil NÃO é "igl-rifler", ENTÃO a intenção tática é "econômico".
 9. **Regra Tática Investimento Pesado:** SE a economia é "full buy" E o perfil é "sniper", ENTÃO a intenção tática é de "investimento pesado".
@@ -34,6 +35,7 @@ O sistema possui um total de 16 regras. Abaixo estão descritas em linguagem nat
 11. **Regra Tática IGL Suporte:** SE a economia é "eco" E o perfil é "igl-rifler", ENTÃO a intenção tática é de "suporte tático" (preparação de jogada para a equipe).
 
 **Nível 3: Decisão Final de Equipamento (Prioridade Baixa)**
+
 12. **Regra Final Colete:** SE a tática é "compra inicial", ENTÃO a decisão é comprar Colete 1.
 13. **Regra Final Poupança:** SE a tática é "econômico", ENTÃO a decisão é comprar uma pistola barata (ex: Five-Seven) ou não comprar nada.
 14. **Regra Final AWP CT:** SE a tática é "investimento pesado" E o jogador está do lado "CT", ENTÃO a decisão é comprar uma AWP e Colete 2.
@@ -44,7 +46,7 @@ O sistema possui um total de 16 regras. Abaixo estão descritas em linguagem nat
 
 ## Casos de Teste
 
-O sistema foi validado com 4 casos de teste que cobrem as diferentes ramificações lógicas do encadeamento (presentes no notebook).
+O sistema foi validado com 4 casos de teste que cobrem as diferentes ramificações lógicas do encadeamento.
 
 ### Teste 1: Round de Pistolas
 * **Entrada:** Jogador(nome="FalleN", lado="TR", dinheiro=800, funcao="igl-rifler", tipo_round="pistol")
