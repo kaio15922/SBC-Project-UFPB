@@ -105,6 +105,11 @@ class MotorDeRegrasCS(KnowledgeEngine):
     def regra_final_deagle_smoke(self, nome):
         print(f"DECISÃO: {nome} compra Deagle e smoke porque as regras R2, R5b e R10 dispararam.")
 
+    @Rule(AND(Fact(tatica="investimento_padrao", jogador=MATCH.nome),
+              Jogador(lado="CT", nome=MATCH.nome)), salience=10)
+    def regra_final_m4_ct(self,nome):
+        print(f"DECISÃO: {nome} compra M4 + Colete + Granadas porque as regras R3, R5 e R9 dispararam.")
+
 
 # ==========================================
 # CASOS DE TESTE COMENTADOS
