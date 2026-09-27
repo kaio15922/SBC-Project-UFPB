@@ -63,6 +63,18 @@ Ao garantir um "platô" de pertinência absoluta (grau 1.0) entre 0-20 e 80-100,
 
 <img width="324" height="141" alt="image" src="https://github.com/user-attachments/assets/04d13d04-d878-482e-b05e-1a1d1e3cf814" />
 
+Para validar a robustez do controlador Fuzzy em relação a cenários onde as variáveis de entrada entram em "conflito" (uma é extremamente alta e a outra é extremamente baixa), foram introduzidos dois casos de teste adicionais. Estes casos demonstram a superioridade da Lógica Fuzzy frente a condicionais booleanas tradicionais (`if/else`).
+
+*   **Caso 4: O "Spammer" (Alta Pontuação, Baixa Precisão)**
+    *   **Entradas:** Pontuação = 90 | Precisão = 15%
+    *   **Comportamento:** Representa o jogador que avança de forma caótica. Em um cenário de jogo de tiro (como *Counter-Strike*), seria o jogador que consegue eliminações, mas gasta múltiplos carregadores atirando a esmo. 
+    *   **Decisão do Controlador:** Ativa as regras associadas a "Boa" e "Baixa". O sistema reconhece a eficácia no placar, mas pune a falta de eficiência mecânica, convergindo a saída para a dificuldade **Média**. O jogo não atinge a dificuldade máxima, exigindo que o jogador melhore sua técnica antes de enfrentar o maior desafio.
+
+*   **Caso 5: O Jogador Passivo / "Camper" (Baixa Pontuação, Alta Precisão)**
+    *   **Entradas:** Pontuação = 10 | Precisão = 95%
+    *   **Comportamento:** Representa o jogador extremamente cauteloso ou inativo. Ele pode acertar um tiro cirúrgico (alta precisão), mas não contribui para o progresso da fase ou para o objetivo da partida (baixa pontuação geral).
+    *   **Decisão do Controlador:** Ativa as regras associadas a "Ruim" e "Alta". O motor Mamdani entende que a precisão mecânica não justifica punir o jogador com uma dificuldade elevada, já que ele mal consegue progredir no mapa. A saída converge para a dificuldade **Média**, instigando o jogador a sair da inércia sem sobrecarregá-lo.
+
 ## 5. Instruções de Execução (Build e Testes)
 
 O projeto foi desenvolvido em Python 3.x. Siga os passos abaixo para preparar o ambiente e rodar as simulações do motor de inferência.
