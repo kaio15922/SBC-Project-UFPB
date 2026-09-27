@@ -84,7 +84,3 @@ if __name__ == "__main__":
     # Taxa de acerto impecável, porém com pouquíssimo impacto no progresso do jogo.
     # O sistema restringe o aumento drástico da dificuldade, reconhecendo que o jogador ainda não domina o mapa.
     testar_dificuldade(10, 95)
-    
-    # Opcional: Gerar gráfico da saída do Caso 3
-    # dificuldade.view(sim=simulador)
-    # plt.show() # Necessário importar matplotlib.pyplot as plt
