@@ -12,10 +12,16 @@ O sistema utiliza duas variáveis de entrada para capturar a eficácia e a efici
     *   Conjuntos: `Ruim`, `Média`, `Boa`.
 *   **Precisão (0 a 100%):** Mede a eficiência mecânica e a taxa de acertos, filtrando jogadores que avançam apenas por tentativa e erro.
     *   Conjuntos: `Baixa`, `Média`, `Alta`.
+ 
+<img width="1200" height="600" alt="fuzzy_pontuacao" src="https://github.com/user-attachments/assets/48e59fed-8d61-4089-b87f-b39e96894b5c" />
+
+<img width="1200" height="600" alt="fuzzy_precisao" src="https://github.com/user-attachments/assets/e0d0e7a8-3999-4ceb-9246-4d65939c6cc6" />
 
 ### Saída (Consequente)
 *   **Dificuldade (0 a 100):** O nível de desafio imposto pela inteligência artificial do jogo (ex: dano dos inimigos, tempo de reação).
     *   Conjuntos: `Fácil`, `Média`, `Difícil`.
+
+<img width="1200" height="600" alt="fuzzy_dificuldade" src="https://github.com/user-attachments/assets/383388ae-7bf4-44bc-9adb-ec4096f20adc" />
 
 ## 3. Base de Regras
 Foi definida uma matriz de 9 regras conectadas pelo operador lógico `E` (AND) para garantir transições suaves:
@@ -57,5 +63,51 @@ Ao garantir um "platô" de pertinência absoluta (grau 1.0) entre 0-20 e 80-100,
 
 <img width="324" height="141" alt="image" src="https://github.com/user-attachments/assets/04d13d04-d878-482e-b05e-1a1d1e3cf814" />
 
-## 5. Conclusão
-A implementação do controlador Fuzzy em Python (`scikit-fuzzy`) provou ser uma arquitetura leve e altamente eficaz para tomadas de decisão que envolvem graus de incerteza no comportamento humano. A calibração geométrica dos conjuntos linguísticos demonstrou na prática como a modelagem da base matemática impacta diretamente a resposta do agente autônomo, resultando em um sistema robusto e pronto para integração.
+## 5. Instruções de Execução (Build e Testes)
+
+O projeto foi desenvolvido em Python 3.x. Siga os passos abaixo para preparar o ambiente e rodar as simulações do motor de inferência.
+
+### 5.1. Preparando o Ambiente Virtual (Opcional, mas recomendado)
+
+Abra o terminal no diretório raiz do projeto e crie um ambiente virtual para isolar as dependências:
+
+```bash
+# Criar o ambiente virtual (Windows/Linux/macOS)
+python -m venv venv
+
+# Ativar no Windows (PowerShell)
+.\venv\Scripts\Activate.ps1
+
+# Ativar no Linux/macOS
+source venv/bin/activate
+```
+
+### 5.2. Instalando as Dependências
+
+O sistema utiliza a biblioteca scikit-fuzzy para a lógica difusa, o numpy para operações numéricas e o matplotlib para a renderização dos gráficos de pertinência. Instale-os via pip:
+
+```bash
+pip install numpy scikit-fuzzy matplotlib
+```
+
+### 5.3. Executando os Casos de Teste (Motor de Inferência)
+
+Para rodar as simulações e verificar a saída de dificuldade baseada na pontuação e precisão do jogador, execute o script de testes (certifique-se de usar o nome correto do seu arquivo, ex: miniteste2.py):
+
+```bash
+python miniteste2.py
+```
+
+O console exibirá os resultados do cálculo do centróide para cada cenário configurado no código.
+
+### 5.4. Gerando os Gráficos dos Conjuntos Fuzzy
+
+Para gerar as representações visuais das funções trapezoidais e triangulares (.png) diretamente na pasta do projeto (de forma silenciosa), execute:
+
+```bash
+python gerar_graficos.py
+```
+
+## 6. Conclusão
+
+A implementação do controlador Fuzzy em Python (scikit-fuzzy) provou ser uma arquitetura leve e altamente eficaz para tomadas de decisão que envolvem graus de incerteza no comportamento humano. A calibração geométrica dos conjuntos linguísticos demonstrou na prática como a modelagem da base matemática impacta diretamente a resposta do agente autônomo, resultando em um sistema robusto e pronto para integração.
