@@ -10,7 +10,7 @@ O sistema utiliza duas variáveis de entrada para capturar a eficácia e a efici
 ### Entradas (Antecedentes)
 *   **Pontuação (0 a 100):** Mede o impacto geral do jogador e o cumprimento de objetivos (ex: K/D ratio, progressão de mapa).
     *   Conjuntos: `Ruim`, `Média`, `Boa`.
-*   **Precisão (0 a 100%):** Mede a eficiência mecânica e a taxa de acertos, filtrando jogadores que avançam apenas por tentativa e erro ("spammers").
+*   **Precisão (0 a 100%):** Mede a eficiência mecânica e a taxa de acertos, filtrando jogadores que avançam apenas por tentativa e erro.
     *   Conjuntos: `Baixa`, `Média`, `Alta`.
 
 ### Saída (Consequente)
@@ -22,11 +22,14 @@ Foi definida uma matriz de 9 regras conectadas pelo operador lógico `E` (AND) p
 
 1. SE Pontuação é Ruim E Precisão é Baixa ENTÃO Dificuldade é Fácil.
 2. SE Pontuação é Ruim E Precisão é Média ENTÃO Dificuldade é Fácil.
-3. SE Pontuação é Ruim E Precisão é Alta ENTÃO Dificuldade é Média (Perfil "Camper").
+3. SE Pontuação é Ruim E Precisão é Alta ENTÃO Dificuldade é Média.
 4. SE Pontuação é Média E Precisão é Baixa ENTÃO Dificuldade é Fácil.
 5. SE Pontuação é Média E Precisão é Média ENTÃO Dificuldade é Média.
 6. SE Pontuação é Média E Precisão é Alta ENTÃO Dificuldade é Difícil.
-7. SE Pontuação é Boa E Precisão é Baixa ENTÃO Dificuldade é Média (Perfil "Spammer").
+7. SE Pontuação é Boa E Precisão é Baixa ENTÃO Dificuldade é Média<img width="596" height="333" alt="338b913a-7156-48cb-bf46-9dc07eb3b74c" src="https://github.com/user-attachments/assets/15041796-8dbe-41d6-833f-4c75806990b0" />
+<img width="596" height="333" alt="338b913a-7156-48cb-bf46-9dc07eb3b74c" src="https://github.com/user-attachments/assets/55b703fc-e6b4-45c1-8670-bfdf1aa05985" />
+<img width="596" height="333" alt="338b913a-7156-48cb-bf46-9dc07eb3b74c" src="https://github.com/user-attachments/assets/1651e9fb-e2c0-4972-9e20-faff0f7266a0" />
+.
 8. SE Pontuação é Boa E Precisão é Média ENTÃO Dificuldade é Difícil.
 9. SE Pontuação é Boa E Precisão é Alta ENTÃO Dificuldade é Difícil.
 
