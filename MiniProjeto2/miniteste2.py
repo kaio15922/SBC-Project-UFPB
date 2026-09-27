@@ -63,14 +63,27 @@ def testar_dificuldade(p_pontuacao, p_precisao):
 if __name__ == "__main__":
     print("--- CASOS DE TESTE ---")
     
-    # Caso 1: O exemplo exato que você propôs
+    # Caso 1: Jogador de alto nível (Ativa os conjuntos "Boa" e "Alta")
+    # O controlador deve elevar a dificuldade em direção ao máximo para manter o engajamento.
     testar_dificuldade(80, 75)
     
-    # Caso 2: Jogador com muita dificuldade (Sofrendo muito)
+    # Caso 2: Jogador com desempenho crítico (Ativa os conjuntos "Ruim" e "Baixa")
+    # O controlador deve ancorar o jogo no nível Fácil para evitar a frustração do usuário.
     testar_dificuldade(15, 20)
     
-    # Caso 3: Jogador mediano com precisão razoável
+    # Caso 3: Jogador casual com progresso estável (Ativa o conjunto "Média")
+    # O controlador deve entregar um desafio perfeitamente equilibrado, próximo ao centro de massa.
     testar_dificuldade(45, 60)
+    
+    # Caso 4: Jogador "Spammer" (Ativa os conjuntos "Boa" e "Baixa")
+    # Alta eficácia de pontuação, mas baixa eficiência mecânica (ex: atira para todo lado).
+    # O sistema aplica uma dificuldade moderada para compensar a imprecisão sem desvalorizar o progresso.
+    testar_dificuldade(90, 15)
+
+    # Caso 5: Jogador "Camper" ou passivo (Ativa os conjuntos "Ruim" e "Alta")
+    # Taxa de acerto impecável, porém com pouquíssimo impacto no progresso do jogo.
+    # O sistema restringe o aumento drástico da dificuldade, reconhecendo que o jogador ainda não domina o mapa.
+    testar_dificuldade(10, 95)
     
     # Opcional: Gerar gráfico da saída do Caso 3
     # dificuldade.view(sim=simulador)
