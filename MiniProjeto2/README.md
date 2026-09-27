@@ -26,10 +26,7 @@ Foi definida uma matriz de 9 regras conectadas pelo operador lógico `E` (AND) p
 4. SE Pontuação é Média E Precisão é Baixa ENTÃO Dificuldade é Fácil.
 5. SE Pontuação é Média E Precisão é Média ENTÃO Dificuldade é Média.
 6. SE Pontuação é Média E Precisão é Alta ENTÃO Dificuldade é Difícil.
-7. SE Pontuação é Boa E Precisão é Baixa ENTÃO Dificuldade é Média<img width="596" height="333" alt="338b913a-7156-48cb-bf46-9dc07eb3b74c" src="https://github.com/user-attachments/assets/15041796-8dbe-41d6-833f-4c75806990b0" />
-<img width="596" height="333" alt="338b913a-7156-48cb-bf46-9dc07eb3b74c" src="https://github.com/user-attachments/assets/55b703fc-e6b4-45c1-8670-bfdf1aa05985" />
-<img width="596" height="333" alt="338b913a-7156-48cb-bf46-9dc07eb3b74c" src="https://github.com/user-attachments/assets/1651e9fb-e2c0-4972-9e20-faff0f7266a0" />
-.
+7. SE Pontuação é Boa E Precisão é Baixa ENTÃO Dificuldade é Média.
 8. SE Pontuação é Boa E Precisão é Média ENTÃO Dificuldade é Difícil.
 9. SE Pontuação é Boa E Precisão é Alta ENTÃO Dificuldade é Difícil.
 
@@ -40,10 +37,15 @@ Durante a fase de testes e validação da defuzzificação (método do centróid
 Com bases triangulares indo de 0 a 100, a área da função central ("Média") exercia uma força gravitacional desproporcional sobre o centro de massa da área agregada. Isso impedia que a saída atingisse as extremidades lógicas do universo.
 *   **Cenário de Teste (Alta Performance):** Pontuação = 80, Precisão = 75%.
 *   **Saída Obtida:** Dificuldade = 57.04/100.
-*   **Análise:** Um jogador com desempenho inegavelmente bom estava recebendo uma dificuldade marginalmente acima da média, falhando no propósito do sistema. O mesmo ocorreu para desempenhos muito ruins (Pontuação = 15, Precisão = 20%), resultando em uma dificuldade de 38.96, que não aliviava a pressão sobre o jogador adequadamente.
+*   **Análise:** Um jogador com desempenho inegavelmente bom estava receben
+do uma dificuldade marginalmente acima da média, falhando no propósito do sistema. O mesmo ocorreu para desempenhos muito ruins (Pontuação = 15, Precisão = 20%), resultando em uma dificuldade de 38.96, que não aliviava a pressão sobre o jogador adequadamente.
+
+<img width="338" height="144" alt="image" src="https://github.com/user-attachments/assets/025f02c3-214a-44e0-b484-554aa8452151" />
 
 ### A Solução: Funções de Pertinência Mistas (Trapézios nas Pontas)
 Para corrigir o deslocamento do centróide, o modelo foi refatorado substituindo as funções triangulares das extremidades (`Ruim`/`Boa`, `Baixa`/`Alta`, `Fácil`/`Difícil`) por funções trapezoidais (`trapmf`), mantendo a função triangular apenas no conjunto central (`Média`).
+
+<img width="324" height="141" alt="image" src="https://github.com/user-attachments/assets/04d13d04-d878-482e-b05e-1a1d1e3cf814" />
 
 **Parâmetros Trapezoidais (Cortes em 20 e 80):**
 *   Ruim / Baixa / Fácil: `[0, 0, 20, 50]`
