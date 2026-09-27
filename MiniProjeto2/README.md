@@ -45,8 +45,6 @@ do uma dificuldade marginalmente acima da média, falhando no propósito do sist
 ### A Solução: Funções de Pertinência Mistas (Trapézios nas Pontas)
 Para corrigir o deslocamento do centróide, o modelo foi refatorado substituindo as funções triangulares das extremidades (`Ruim`/`Boa`, `Baixa`/`Alta`, `Fácil`/`Difícil`) por funções trapezoidais (`trapmf`), mantendo a função triangular apenas no conjunto central (`Média`).
 
-<img width="324" height="141" alt="image" src="https://github.com/user-attachments/assets/04d13d04-d878-482e-b05e-1a1d1e3cf814" />
-
 **Parâmetros Trapezoidais (Cortes em 20 e 80):**
 *   Ruim / Baixa / Fácil: `[0, 0, 20, 50]`
 *   Boa / Alta / Difícil: `[50, 80, 100, 100]`
@@ -56,6 +54,8 @@ Ao garantir um "platô" de pertinência absoluta (grau 1.0) entre 0-20 e 80-100,
 *   **Cenário 1 (Alta Performance):** Pontuação 80, Precisão 75% ➔ **Dificuldade Ajustada: 80.56/100** (Desempenho excelente reflete em dificuldade legitimamente difícil).
 *   **Cenário 2 (Baixa Performance):** Pontuação 15, Precisão 20% ➔ **Dificuldade Ajustada: 18.57/100** (Dificuldade cai drasticamente para ajudar o jogador).
 *   **Cenário 3 (Performance Mediana):** Pontuação 45, Precisão 60% ➔ **Dificuldade Ajustada: 54.28/100** (A transição pelo centro mantém a estabilidade triangular).
+
+<img width="324" height="141" alt="image" src="https://github.com/user-attachments/assets/04d13d04-d878-482e-b05e-1a1d1e3cf814" />
 
 ## 5. Conclusão
 A implementação do controlador Fuzzy em Python (`scikit-fuzzy`) provou ser uma arquitetura leve e altamente eficaz para tomadas de decisão que envolvem graus de incerteza no comportamento humano. A calibração geométrica dos conjuntos linguísticos demonstrou na prática como a modelagem da base matemática impacta diretamente a resposta do agente autônomo, resultando em um sistema robusto e pronto para integração.
